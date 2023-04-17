@@ -92,7 +92,7 @@ store.dispatch("getTasks");
 function deleteTasks(tasks) {
   if (
     confirm(
-      `Are you sure you want to delete this Vaccine? Operation can't be undone!!`
+      `Are you sure you want to delete this Task? Operation can't be undone!!`
     )
   ) {   
     store.dispatch("deleteTask", tasks.id).then(() => {
