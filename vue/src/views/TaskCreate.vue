@@ -76,6 +76,8 @@
     import { useRouter, useRoute } from "vue-router";
     import { ref, watch, computed } from "vue";
 
+    const userId = store.state.user.id;
+
     const router = useRouter();
     const route = useRoute();
 
@@ -83,7 +85,8 @@
         title: '',
         deadline: '',
         description: '',
-        status: '1'
+        status: '1',
+        user_id: userId
     });
 
     watch(

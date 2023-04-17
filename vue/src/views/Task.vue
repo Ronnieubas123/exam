@@ -36,7 +36,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="tasks in task">
+                              <template v-for="tasks in task">
+                                <tr v-if="tasks.user_id === userId">
                                         <th><input :value="tasks.id" type="checkbox" id="myCheck" @click="updateStatus($event)"></th>
                                         <td data-label="Title" class="pt-3 py-3">{{ tasks.title}}</td>
                                         <td data-label="Deadline" class="pt-3 py-3">{{ tasks.deadline }}</td>
@@ -66,6 +67,8 @@
                                           </template>
                                         </td>
                                 </tr>
+                              </template>
+                              
                             </tbody>
                          </table>
                 </div>
@@ -76,6 +79,8 @@
 import { ref, computed } from "vue";
 import store from "../store";
 import { useRouter, useRoute } from "vue-router";
+
+const userId = store.state.user.id;
 
 const task = computed(() => store.state.tasks.data);
 const taskLoading = computed(() => store.state.tasks.loading);

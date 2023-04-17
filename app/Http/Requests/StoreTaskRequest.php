@@ -25,7 +25,8 @@ class StoreTaskRequest extends FormRequest
             'title' => 'required|string',
             'deadline' => 'required|string',
             'description' => 'required|string',
-            'status' => 'required|boolean'
+            'status' => 'required|boolean',
+            'user_id' => 'string'
         ];
     }
 }
